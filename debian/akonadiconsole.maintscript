@@ -1,0 +1,2 @@
+rm_conffile /etc/xdg/akonadiconsole.categories 4:20.04.1-2~
+rm_conffile /etc/xdg/akonadiconsole.renamecategories 4:20.04.1-2~

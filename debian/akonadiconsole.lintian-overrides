@@ -1,0 +1,4 @@
+# private library
+akonadiconsole: package-name-doesnt-match-sonames libakonadiconsole5
+# private library
+akonadiconsole: no-symbols-control-file

@@ -1,0 +1,35 @@
+/*
+    SPDX-FileCopyrightText: 2018 Sandro Knauß <sknauss@kde.org>
+
+    SPDX-License-Identifier: LGPL-2.0-or-later
+*/
+
+#pragma once
+
+#include <QSet>
+#include <QSortFilterProxyModel>
+#include <QTimer>
+
+namespace KPIM
+{
+class KCheckComboBox;
+}
+
+class DebugFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit DebugFilterModel(QObject *parent = nullptr);
+    ~DebugFilterModel();
+
+    void setSenderFilter(KPIM::KCheckComboBox *appFilter);
+
+protected:
+    bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;
+
+private:
+    KPIM::KCheckComboBox *mSenderFilter = nullptr;
+    QSet<QString> mCheckedSenders;
+    QTimer mInvalidateTimer;
+};
+
